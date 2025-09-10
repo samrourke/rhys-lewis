@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { getAllPosts, getPostBySlug } from "../../../../lib/posts";
 import PostBody from "../../../../components/PostBody";
 import styles from "./page.module.css";
+import Image from "next/image";
 
 // IMPORTANT: we read from filesystem, so use Node runtime (not edge)
 export const runtime = "nodejs";
@@ -60,7 +61,7 @@ export default function PostPage({ params }) {
             {new Date(meta.date).toLocaleDateString()}
           </time>
           {meta.cover && (
-            <img
+            <Image
               src={meta.cover}
               alt={meta.title}
               style={{ width: "100%", marginTop: "1rem", borderRadius: 12 }}
