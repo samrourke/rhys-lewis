@@ -3,7 +3,7 @@ const nextConfig = {
   reactStrictMode: false,
   output: "export",
   images: {
-    domains: [],
+    unoptimized: true,
   },
   pageExtensions: ["js", "jsx", "ts", "tsx", "md", "mdx"],
   webpack(config, options) {

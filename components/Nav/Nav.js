@@ -135,13 +135,21 @@ export default function Navbar() {
       <ul className={`${styles.navList} ${isOpen ? styles.active : ""}`}>
         <li className={active === "live" ? styles.active : null}>
           <Link href="/#live-top" onClick={() => handleLinkClick("live")}>
-            <Image className={styles.navImg} src="/Rhys/live.png" alt="Live" />
+            <Image
+              className={styles.navImg}
+              width={180}
+              height={83}
+              src="/Rhys/live.png"
+              alt="Live"
+            />
           </Link>
         </li>
         <li className={active === "music" ? styles.active : null}>
           <Link href="/#music" onClick={() => handleLinkClick("music")}>
             <Image
               className={styles.navImg}
+              width={180}
+              height={83}
               src="/Rhys/music.png"
               alt="Music"
             />
@@ -149,7 +157,13 @@ export default function Navbar() {
         </li>
         <li className={active === "blog" ? styles.active : null}>
           <Link href="/blog" onClick={() => handleLinkClick("blog")}>
-            <Image className={styles.navImg} src="/Rhys/blog.png" alt="Music" />
+            <Image
+              className={styles.navImg}
+              width={180}
+              height={83}
+              src="/Rhys/blog.png"
+              alt="Blog"
+            />
           </Link>
         </li>
         <li>
@@ -160,6 +174,8 @@ export default function Navbar() {
           >
             <Image
               className={styles.navImg}
+              width={180}
+              height={83}
               src="/Rhys/merch.png"
               alt="Merch"
             />

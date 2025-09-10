@@ -8,14 +8,14 @@
     align-items: center;
     background-image:url('/Rhys/lastFrame.png'),;
     scroll-snap-align: none;
-    overflow-x: hidden;
+   
 }
 
-.container{
+/* .container{
     position:relative;
     width:100vw;
     height:100vh;
-}
+} */
 
 .heroVideo{
     z-index: 1;
