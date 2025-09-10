@@ -9,6 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@mdx-js/loader": "^3.1.1",
+    "@mdx-js/react": "^3.1.1",
     "@netlify/next": "^1.4.9",
     "@next/mdx": "^15.5.2",
     "gray-matter": "^4.0.3",

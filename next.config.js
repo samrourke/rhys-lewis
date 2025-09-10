@@ -1,18 +1,21 @@
-const createMDX = require("@next/mdx");
-
-const withMDX = createMDX({
-  extension: /\.mdx?$/, // allow .md & .mdx
-});
-
-const { withNetlify } = require("@netlify/next");
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: false,
-  images: {
-    domains: [], // add external image domains if needed
+  pageExtensions: ["js", "jsx", "ts", "tsx", "md", "mdx"],
+  webpack(config, options) {
+    config.module.rules.push({
+      test: /\.mdx?$/,
+      use: [
+        options.defaultLoaders.babel,
+        {
+          loader: "@mdx-js/loader",
+          options: {},
+        },
+      ],
+    });
+
+    return config;
   },
-  pageExtensions: ["js", "jsx", "ts", "tsx", "md", "mdx"], // include md/mdx as pages
 };
 
-module.exports = withMDX(nextConfig);
+module.exports = nextConfig;
