@@ -105,6 +105,7 @@ export default function Hero() {
       });
 
       return () => {
+        ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
         crossfade?.scrollTrigger?.kill();
         crossfade?.kill();
         tween?.scrollTrigger?.kill();
@@ -113,10 +114,13 @@ export default function Hero() {
       };
     };
 
-    if (video.readyState >= 1) return init();
-    const onMeta = () => init();
-    video.addEventListener("loadedmetadata", onMeta, { once: true });
-    return () => video.removeEventListener("loadedmetadata", onMeta);
+    if (video.readyState >= 1) {
+      init();
+    } else {
+      const onMeta = () => init();
+      video.addEventListener("loadedmetadata", onMeta, { once: true });
+      return () => video.removeEventListener("loadedmetadata", onMeta);
+    }
   }, [reducedMotion]);
 
   // Pin the whole hero for slightly less than scroll length
