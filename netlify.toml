@@ -1,9 +1,13 @@
 [build]
   command = "npm run build"
   publish = "out"
+  ignore = "exit 0"  # optional, prevents unnecessary builds
 
 [build.environment]
   NODE_VERSION = "18"
+
+[plugins."@netlify/plugin-nextjs"]
+  enabled = false
 
 [[redirects]]
   from = "/*"
