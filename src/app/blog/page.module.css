@@ -1,0 +1,37 @@
+.blogPage{
+    height:100svh;
+    width:100vw;
+    background-image: url("/Rhys/lastFrame.png");
+    padding-top: 140px;
+    padding: 140px 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+   
+}
+
+.blogPage ul{
+    width:60vw;
+    max-width: 900px;
+    min-width: 400px;
+    margin-top:2rem
+}
+
+.blogPage ul li{
+     background:var(--background-gray); /* subtle hover highlight */
+     padding:2rem 2rem;
+     border: 1px solid #a69c9c72;
+     border-radius: 5px;
+     cursor: pointer;
+     text-align: center;
+}
+
+.blogPage ul li:hover{
+      background:var(--hover);
+}
+
+@media(max-width:1000px){
+    .blogPage{
+        padding-top: 80px;
+    }
+}

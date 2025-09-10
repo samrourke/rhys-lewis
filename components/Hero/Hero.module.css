@@ -1,0 +1,96 @@
+.hero{
+    height:100vh;
+    width:100vw;
+    position:absolute;
+    top:0;
+    left:0;
+    display: flex;
+    align-items: center;
+    background-image:url('/Rhys/lastFrame.png'),;
+    scroll-snap-align: none;
+    overflow-x: hidden;
+}
+
+.container{
+    position:relative;
+    width:100vw;
+    height:100vh;
+}
+
+.heroVideo{
+    z-index: 1;
+    opacity:0;
+}
+
+
+
+
+
+.heroVideo, .svg{
+    position:absolute;
+    width:100%;
+    height:auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.svg svg{
+    height:100%;
+    width:auto;
+}
+
+
+
+
+.svg{
+    z-index: 2;
+    opacity:1;
+
+}
+
+.dash {
+  animation: draw 1.5s linear forwards;
+}
+
+/* runs once; forwards keeps the final state, then we lock it with strokeDashoffset=0 */
+@keyframes draw {
+  to { stroke-dashoffset: 0; }
+}
+
+
+
+.logo {
+  position: absolute;
+  width:500px;
+  height:auto;
+  left: 50%;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);          
+
+}
+
+
+
+@media(max-width:790px){
+
+
+.heroVideo, .svg{
+   
+    height:70%;
+    width:auto;
+  
+}
+
+   .logo {
+  position: absolute;
+  width:70vw;
+  height:auto;
+  left: 50%;
+  top: 60px;
+  left: 50%;
+  transform: translate(-50%, -50%);          
+
+}
+}

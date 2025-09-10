@@ -1,0 +1,28 @@
+.section{
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    
+    
+   
+}
+
+.animationWrapper{
+    
+    width:70%;
+  
+   z-index: 1;
+ 
+}
+
+@media(max-width:790px){
+
+    .section{
+        padding-bottom: 4rem;
+        
+    }
+    
+    .animationWrapper{
+        width:80%;
+    }
+}

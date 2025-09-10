@@ -1,27 +1,28 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --text:#272727;
+  --nav:#f3e1e1ee;
+  --hover:#f7f7f750;
+  --background-gray:#fbf9f542;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
 
 html,
 body {
   max-width: 100vw;
-  overflow-x: hidden;
+  overflow: visible;
+  font-family: var(--font-fraunces), serif;
+  color: var(--text);
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+ 
+  background-image: "url('/bg.webp')";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+   
 }
 
 * {
@@ -35,8 +36,108 @@ a {
   text-decoration: none;
 }
 
+
+section{
+  background-image: url('/Rhys/lastFrame.png');
+  min-height: 100svh;
+  width:100vw;
+
+
+}
+
+#music{
+  scroll-margin-top:120px;
+}
+
+
+.titleDiv{
+  width:100%;
+  
+  text-align: center;
+    padding: 0;
+    z-index: 2;
+}
+
+.sectionTitle{
+  font-size: clamp(2rem, 0.9437rem + 6.3803vw, 6rem);
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  color: #161515d9; /* keep this! */
+ 
+}
+
+
+
+
+#animatedSpacer{
+  min-height: min-content;
+}
+
+
+
+.video{
+    width:90%;
+    height:auto;
+   object-fit: cover;
+   display: block;
+
+  /* Feather edges with a radial gradient */
+  /* WebKit prefix covers Safari/iOS; the unprefixed works in FF/Chromium */
+  -webkit-mask-image: radial-gradient(ellipse at center,
+      #fff 70%, rgba(255,255,255,0) 80%);
+  mask-image: radial-gradient(ellipse at center,
+      #fff 70%, rgba(255,255,255,0) 80%);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+
+}
+
+.coupleVideo{
+  
+    mix-blend-mode: multiply;     /* try 'multiply' on light backgrounds */
+   opacity: 0.9;                /* small fade to help the blend */
+   filter: brightness(0.91) contrast(0.99) saturate(0.95);
+   aspect-ratio: 500 / 282;  /* keeps the same box as your SVG viewBox */
+   
+}
+
+.womanVideo{
+  opacity: 1;                /* small fade to help the blend */
+   filter: brightness(0.94) contrast(0.99) saturate(0.95);
+   /* keeps the same box as your SVG viewBox */
+
+   /* Feather edges with a radial gradient */
+  /* WebKit prefix covers Safari/iOS; the unprefixed works in FF/Chromium */
+  -webkit-mask-image: radial-gradient(ellipse at center,
+      #fff 50%, rgba(255,255,255,0) 80%);
+  mask-image: radial-gradient(ellipse at center,
+      #fff 50%, rgba(255,255,255,0) 80%);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+}
+
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
   }
 }
+
+
+
+
+ 
+
+
+.itemcontainer {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  padding-bottom: 2rem;
+  
+}
+
