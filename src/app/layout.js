@@ -1,4 +1,5 @@
 import Navbar from "../../components/Nav/Nav";
+import Head from "./head";
 import { Fraunces, Roboto, Work_Sans } from "next/font/google";
 import "./globals.css";
 
@@ -26,6 +27,7 @@ export default function RootLayout({ children }) {
       lang="en"
       className={`${fraunces.variable} ${roboto.variable} ${work_sans.variable}`}
     >
+      <Head />
       <body>
         <Navbar />
         {children}

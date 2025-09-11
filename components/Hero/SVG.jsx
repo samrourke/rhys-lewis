@@ -54,6 +54,7 @@ export default function CloudMaskReveal({ mask, firstFrame, viewport }) {
 
       <image
         href={firstFrame}
+        loading="eager"
         className={styles.image}
         ref={imageRef}
         width="1920"

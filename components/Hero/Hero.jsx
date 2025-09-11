@@ -154,7 +154,7 @@ export default function Hero() {
 
         <SVG
           mask={handsMask}
-          firstFrame="/video/firstFrame.png"
+          firstFrame="/video/handsFirstFrame.webp"
           viewport="0 0 1920 1080"
         />
       </div>
