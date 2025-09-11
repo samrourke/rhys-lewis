@@ -76,4 +76,8 @@
 .tourContainer{
   padding-top: 50px;
 }
+
+.tourContainer:before{
+  background-image: url("/image/coupleLastFrameMobile.webp");
+}
 }

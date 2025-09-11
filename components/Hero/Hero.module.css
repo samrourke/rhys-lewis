@@ -1,6 +1,8 @@
 .hero{
     height:100vh;
     width:100vw;
+    max-width: 100vw;
+ 
     position:absolute;
     top:0;
     left:0;
@@ -75,13 +77,18 @@
 
 @media(max-width:790px){
 
+  .hero{
+    overflow-x: hidden;
+  }
+
 
 .heroVideo, .svg{
    
-    height:70%;
-    width:auto;
-  
+   width:100%;
+   min-width: 600px;
+   height: auto;
 }
+
 
    .logo {
   position: absolute;

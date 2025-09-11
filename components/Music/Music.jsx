@@ -26,6 +26,7 @@ export default function Music() {
       <div className={styles.container}>
         <iframe
           data-testid="embed-iframe"
+          title="Spotify player embed"
           style={{ borderRadius: "12px" }}
           src="https://open.spotify.com/embed/playlist/37i9dQZF1DZ06evO2RRKl5?utm_source=generator&theme=0"
           width="90%"

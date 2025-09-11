@@ -7,6 +7,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 import handsMask from "../SVG/masks/hands";
+import handsMobileMask from "../SVG/masks/handsMobile";
 import Image from "next/image";
 import Animations from "../Animations/Animations";
 
@@ -145,8 +146,8 @@ export default function Hero() {
         <Animations
           webMSrc="/video/handsDesktop.webm"
           mp4Src="/video/handsDesktop.mp4"
-          mobWebMSrc="/video/handsMobile.webm"
-          mobMp4Src="/video/handsMobile.mp4"
+          mobWebMSrc="/video/handsMobile4x.webm"
+          mobMp4Src="/video/handsMobile4x.mp4"
           style={`${styles.heroVideo}`}
           poster="/video/handsFirstFrame.webp"
           ref={videoRef}
@@ -154,8 +155,11 @@ export default function Hero() {
 
         <SVG
           mask={handsMask}
+          mobileMask={handsMobileMask}
           firstFrame="/video/handsFirstFrame.webp"
-          viewport="0 0 1920 1080"
+          mobileFirstFrame="/video/firstFrameMobile.webp"
+          view="0 0 1920 1080"
+          mobileView="0 0 640 854"
         />
       </div>
       <Image

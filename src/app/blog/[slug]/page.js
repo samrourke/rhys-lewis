@@ -55,7 +55,7 @@ export default function PostPage({ params }) {
     <section className={`${styles.blogPage} section`} id="blogPage">
       <article className={styles.prose}>
         <Link href="/blog" className={styles.back}>
-          &larr; Back To Blogs
+          &larr; Back
         </Link>
         <header>
           <h1 id={styles.blogTitle} style={{ marginBottom: "0.25rem" }}>

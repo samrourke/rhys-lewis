@@ -1,11 +1,14 @@
 import { useEffect, useState, forwardRef } from "react";
+import IsDesktop from "../IsDesktop/IsDesktop";
 
 const HeroVideo = forwardRef(function HeroVideo(
-  { style, webMSrc, mp4Src, mobWebMSrc, mobMp4Src, poster },
+  { style, webMSrc, mp4Src, mobWebMSrc, mobMp4Src, poster, mobilePoster },
   ref
 ) {
   const [browser, setBrowser] = useState(null);
-  const [isDesktop, setIsDesktop] = useState(null);
+
+  //IsDestop function returns true for desktop and false for mobile/ipad
+  const device = IsDesktop();
 
   useEffect(() => {
     const userAgent = navigator.userAgent;
@@ -18,24 +21,17 @@ const HeroVideo = forwardRef(function HeroVideo(
     } else {
       setBrowser("other");
     }
-
-    const device = window.matchMedia(
-      "(hover: hover) and (pointer: fine)"
-    ).matches;
-    setIsDesktop(device);
   }, []);
 
-  console.log(isDesktop);
-
   const getVideoSource = () => {
-    if (isDesktop === null) return;
-    if (isDesktop) {
+    if (device === null) return;
+    if (device) {
       return browser === null ? null : browser === "firefox" ? (
         <source src={webMSrc} type='video/webm; codecs="vp9"' />
       ) : (
         <source src={mp4Src} type="video/mp4" />
       );
-    } else if (!isDesktop) {
+    } else if (!device) {
       return browser === null ? null : browser === "firefox" ? (
         <source src={mobWebMSrc} type='video/webm; codecs="vp9"' />
       ) : (
@@ -45,14 +41,7 @@ const HeroVideo = forwardRef(function HeroVideo(
   };
 
   return (
-    <video
-      muted
-      className={style}
-      playsInline
-      preload="auto"
-      ref={ref}
-      poster={poster}
-    >
+    <video muted className={style} playsInline preload="auto" ref={ref}>
       {getVideoSource()}
     </video>
   );
