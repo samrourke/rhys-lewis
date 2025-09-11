@@ -60,7 +60,7 @@ export default function Footer() {
         </div>
         <p>&copy; {new Date().getFullYear()} Rhys Lewis</p>
 
-        <h3>
+        <p className={styles.deadCulture}>
           Website Designed By{" "}
           <a
             className={styles.link}
@@ -69,7 +69,7 @@ export default function Footer() {
           >
             Dead Culture
           </a>
-        </h3>
+        </p>
       </div>
     </footer>
   );

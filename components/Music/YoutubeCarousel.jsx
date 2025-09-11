@@ -2,7 +2,18 @@
 import { useEffect, useRef, useState, useCallback } from "react";
 import styles from "./YoutubeCarousel.module.css";
 
-export default function YouTubeCarousel({ videos = VIDEOS, initialIndex = 0 }) {
+export default function YouTubeCarousel({ initialIndex = 0 }) {
+  // --- Dummy data (replace with your own) ---
+  const videos = [
+    {
+      id: "ltLRZ_TDsqY?si=7vP_uIn5Xbb-c1AL",
+      title: "I Forgot Where We Were (Acoustic)",
+    },
+    { id: "GTP1HkobD8s?si=5-luB_KcpBlPgwuI", title: "Stranger" },
+    { id: "mLZJ42Dp8F0?si=U0BF7YVS_Z-VaKYO", title: "Love In A Modern Age" },
+    { id: "alFm-5Nz2qY?si=89IMnlB2N7s_Hf6g", title: "So Long Ago" },
+  ];
+
   const [index, setIndex] = useState(initialIndex);
   const trackRef = useRef(null);
 
@@ -88,15 +99,6 @@ export default function YouTubeCarousel({ videos = VIDEOS, initialIndex = 0 }) {
 
   return (
     <div className={styles.carousel} aria-label="YouTube video carousel">
-      <button
-        type="button"
-        className={`${styles.nav} ${styles.prev}`}
-        aria-label="Previous video"
-        onClick={goPrev}
-      >
-        ‹‹
-      </button>
-
       <div
         ref={trackRef}
         className={styles.stage}
@@ -109,28 +111,39 @@ export default function YouTubeCarousel({ videos = VIDEOS, initialIndex = 0 }) {
         <Slide video={active} />
 
         {/* Dots */}
-        <div className={styles.dots} role="tablist" aria-label="Select video">
-          {videos.map((v, i) => (
-            <button
-              key={v.id + "-dot"}
-              role="tab"
-              aria-selected={i === index}
-              aria-label={`Slide ${i + 1}: ${v.title}`}
-              className={`${styles.dot} ${i === index ? styles.dotActive : ""}`}
-              onClick={() => goTo(i)}
-            />
-          ))}
+        <div className={styles.navigation}>
+          <button
+            type="button"
+            className={`${styles.nav} ${styles.prev}`}
+            aria-label="Previous video"
+            onClick={goPrev}
+          >
+            ‹‹
+          </button>{" "}
+          <div className={styles.dots} role="tablist" aria-label="Select video">
+            {videos.map((v, i) => (
+              <button
+                key={v.id + "-dot"}
+                role="tab"
+                aria-selected={i === index}
+                aria-label={`Slide ${i + 1}: ${v.title}`}
+                className={`${styles.dot} ${
+                  i === index ? styles.dotActive : ""
+                }`}
+                onClick={() => goTo(i)}
+              />
+            ))}
+          </div>
+          <button
+            type="button"
+            className={`${styles.nav} ${styles.next}`}
+            aria-label="Next video"
+            onClick={goNext}
+          >
+            ››
+          </button>
         </div>
       </div>
-
-      <button
-        type="button"
-        className={`${styles.nav} ${styles.next}`}
-        aria-label="Next video"
-        onClick={goNext}
-      >
-        ››
-      </button>
     </div>
   );
 }
@@ -159,14 +172,3 @@ function Slide({ video }) {
     </figure>
   );
 }
-
-// --- Dummy data (replace with your own) ---
-const VIDEOS = [
-  {
-    id: "ltLRZ_TDsqY?si=7vP_uIn5Xbb-c1AL",
-    title: "I Forgot Where We Were (Acoustic)",
-  },
-  { id: "GTP1HkobD8s?si=5-luB_KcpBlPgwuI", title: "Stranger" },
-  { id: "mLZJ42Dp8F0?si=U0BF7YVS_Z-VaKYO", title: "Love In A Modern Age" },
-  { id: "alFm-5Nz2qY?si=89IMnlB2N7s_Hf6g", title: "So Long Ago" },
-];

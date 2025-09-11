@@ -5,7 +5,7 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
-   background-image: url("/Rhys/lastframe.png");
+   background-image: url("/image/lastframe.webp");
 
 }
 
@@ -35,3 +35,7 @@
 }
 .socialLink:hover { transform: translateY(-1px); background: black;}
 .icon { width: 40px; height: 40px; filter: invert(1) brightness(100%); }
+
+.deadCulture{
+  font-size: 1.3rem;
+}

@@ -1,39 +1,25 @@
 .carousel {
   position: relative;
   display: flex;
- 
   align-items: center;
+  justify-content: center;
   gap: 8px;
   width:80%;
   margin: 0 auto;
-
-
+ 
 
 }
 
 .stage {
   position: relative;
   outline: none;  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
-.nav {
-  appearance: none;
-  border: none;
-  background: transparent;
-  color: #111;
-  width: 48px;
-  height: 48px;
-  border-radius: 999px;
-  cursor: pointer;
-  font-size: 28px;
-  line-height: 48px;
-  text-align: center;
-  transition: transform .15s ease, opacity .15s ease, background .2s ease;
-}
-.nav:hover { transform: scale(1.05);}
-.nav:active { transform: scale(0.98); opacity: 0.9; }
-.prev { justify-self: start; }
-.next { justify-self: end; }
+
 
 .slide {
   margin: 0;
@@ -41,7 +27,8 @@
 
 .playerWrap {
   position: relative;
-  width: 70vw;
+  width:80vw;
+  max-width: 900px;
   /* 16:9 responsive box */
   aspect-ratio: 16 / 9;
   background: #000;
@@ -99,11 +86,42 @@
   box-shadow: 0 4px 14px rgba(0,0,0,0.25);
 }
 
+.navigation{
+  width:100%;
+  padding: 1rem 0;
+  max-width: 900px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap:3rem;
+}
+
+.nav {
+  appearance: none;
+  border: none;
+  background: transparent;
+  color: #111;
+  width: 48px;
+  height: 48px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 32px;
+  line-height: 48px;
+  text-align: center;
+  transition: transform .15s ease, opacity .15s ease, background .2s ease;
+}
+
+.nav:hover { transform: scale(1.05);}
+.nav:active { transform: scale(0.98); opacity: 0.9; }
+.prev { justify-self: start; }
+.next { justify-self: end; }
+
 .dots {
   display: flex;
   justify-content: center;
   gap: 8px;
   margin-top: 10px;
+  
 }
 
 .dot {
@@ -111,7 +129,7 @@
   height: 8px;
   border-radius: 999px;
   border: none;
-  background: #cfcfcf;
+  background: #9a9494;
   cursor: pointer;
 }
 .dotActive { background: #111; }

@@ -123,7 +123,7 @@ export default function Navbar() {
       <Link href="/" onClick={() => handleLinkClick("")}>
         <Image
           className={styles.logo}
-          src={"/Rhys/logo.png"}
+          src={"/image/logo.webp"}
           width={1906}
           height={330}
           alt="Rhys Lewis Logo"
@@ -137,46 +137,48 @@ export default function Navbar() {
           <Link href="/#live-top" onClick={() => handleLinkClick("live")}>
             <Image
               className={styles.navImg}
-              width={180}
-              height={83}
-              src="/Rhys/live.png"
+              width={150}
+              height={69}
+              src="/image/live.webp"
               alt="Live"
             />
           </Link>
         </li>
-        <li className={active === "music" ? styles.active : null}>
+        <li
+          id={styles.musicItem}
+          className={active === "music" ? styles.active : null}
+        >
           <Link href="/#music" onClick={() => handleLinkClick("music")}>
             <Image
               className={styles.navImg}
-              width={180}
-              height={83}
-              src="/Rhys/music.png"
+              width={150}
+              height={47}
+              src="/image/music.webp"
               alt="Music"
             />
           </Link>
         </li>
-        <li className={active === "blog" ? styles.active : null}>
+        <li
+          id={styles.blogItem}
+          className={active === "blog" ? styles.active : null}
+        >
           <Link href="/blog" onClick={() => handleLinkClick("blog")}>
             <Image
               className={styles.navImg}
-              width={180}
-              height={83}
-              src="/Rhys/blog.png"
+              width={150}
+              height={119}
+              src="/image/blog.webp"
               alt="Blog"
             />
           </Link>
         </li>
-        <li>
-          <Link
-            href="https://shop.rhyslewisofficial.com"
-            target="#blank"
-            onClick={() => handleLinkClick("live")}
-          >
+        <li id={styles.merchItem}>
+          <Link href="https://shop.rhyslewisofficial.com" target="#blank">
             <Image
               className={styles.navImg}
-              width={180}
-              height={83}
-              src="/Rhys/merch.png"
+              width={150}
+              height={51}
+              src="/image/merch.webp"
               alt="Merch"
             />
           </Link>
