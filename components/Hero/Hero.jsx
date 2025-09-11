@@ -2,13 +2,12 @@
 
 import styles from "./Hero.module.css";
 import SVG from "./SVG";
-import { useEffect, useRef, useLayoutEffect, useState } from "react";
+import { useEffect, useRef, useLayoutEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 import handsMask from "../SVG/masks/hands";
 import Image from "next/image";
-import HeroVideo from "./HeroVideo";
 import Animations from "../Animations/Animations";
 
 export default function Hero() {
@@ -16,14 +15,13 @@ export default function Hero() {
   const sectionRef = useRef(null);
   const wrapperRef = useRef(null);
   const logoRef = useRef(null);
-  console.log("video ref is " + videoRef.current);
 
   // Optional: warm + ensure the chosen source is properly loaded
   useEffect(() => {
     const v = videoRef.current;
     if (!v) return;
 
-    v.load(); // make the browser (re)evaluate the new src
+    v.load();
     v.play()
       .then(() => v.pause())
       .catch(() => {});
@@ -67,7 +65,7 @@ export default function Hero() {
       // Crossfade right as scrolling begins (first 100px of scroll)
       const crossfade = gsap.timeline({
         scrollTrigger: {
-          trigger: wrapper,
+          trigger: document.documentElement,
           start: "top top", // as soon as user starts scrolling
           end: "+=120",
           scrub: true,
@@ -83,11 +81,11 @@ export default function Hero() {
         currentTime: () => video.duration || 0,
         ease: "none",
         scrollTrigger: {
-          trigger: wrapper,
+          trigger: document.documentElement,
           start: "top top",
           end: `+=${PIN_LEN}`,
           scrub: true,
-          // markers: true,
+          markers: false,
         },
       });
 
@@ -98,7 +96,7 @@ export default function Hero() {
           // Tie directly to page scroll
           trigger: document.documentElement,
           start: "top top",
-          end: "+=20", // fully visible by ~1800px
+          end: "+=40", // fully visible by ~1800px
           markers: false,
           scrub: true,
         },

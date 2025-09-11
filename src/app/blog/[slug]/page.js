@@ -4,6 +4,7 @@ import { getAllPosts, getPostBySlug } from "../../../../lib/posts";
 import PostBody from "../../../../components/PostBody";
 import styles from "./page.module.css";
 import Image from "next/image";
+import Link from "next/link";
 
 // IMPORTANT: we read from filesystem, so use Node runtime (not edge)
 export const runtime = "nodejs";
@@ -53,6 +54,9 @@ export default function PostPage({ params }) {
   return (
     <section className={`${styles.blogPage} section`} id="blogPage">
       <article className={styles.prose}>
+        <Link href="/blog" className={styles.back}>
+          &larr; Back To Blogs
+        </Link>
         <header>
           <h1 id={styles.blogTitle} style={{ marginBottom: "0.25rem" }}>
             {meta.title}
