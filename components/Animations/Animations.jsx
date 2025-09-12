@@ -2,7 +2,7 @@ import { useEffect, useState, forwardRef } from "react";
 import IsDesktop from "../IsDesktop/IsDesktop";
 
 const HeroVideo = forwardRef(function HeroVideo(
-  { style, webMSrc, mp4Src, mobWebMSrc, mobMp4Src, poster, mobilePoster },
+  { style, webMSrc, mp4Src, mobWebMSrc, mobMp4Src },
   ref
 ) {
   const [browser, setBrowser] = useState(null);
@@ -41,7 +41,14 @@ const HeroVideo = forwardRef(function HeroVideo(
   };
 
   return (
-    <video muted className={style} playsInline preload="auto" ref={ref}>
+    <video
+      muted
+      className={style}
+      playsInline
+      autoPlay
+      preload="auto"
+      ref={ref}
+    >
       {getVideoSource()}
     </video>
   );

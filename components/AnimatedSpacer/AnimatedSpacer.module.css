@@ -1,25 +1,60 @@
 .section{
     display: flex;
     align-items: flex-start;
-    justify-content: flex-end;
-    
-    
-   
+    justify-content: flex-end; 
+  
 }
 
+#animatedSpacer{
+    min-height: fit-content;
+}
 .animationWrapper{
     
     width:70%;
-  
-   z-index: 1;
+   
  
 }
+
+
+.video{
+    width:90%;
+    height:auto;
+   object-fit: cover;
+   display: block;
+
+  /* Feather edges with a radial gradient */
+  /* WebKit prefix covers Safari/iOS; the unprefixed works in FF/Chromium */
+  -webkit-mask-image: radial-gradient(ellipse at center,
+      #fff 70%, rgba(255,255,255,0) 80%);
+  mask-image: radial-gradient(ellipse at center,
+      #fff 70%, rgba(255,255,255,0) 80%);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+
+   opacity: 0.97;                /* small fade to help the blend */
+   filter: brightness(0.94) contrast(0.99) saturate(0.95);
+   /* keeps the same box as your SVG viewBox */
+
+   /* Feather edges with a radial gradient */
+  /* WebKit prefix covers Safari/iOS; the unprefixed works in FF/Chromium */
+  -webkit-mask-image: radial-gradient(ellipse at center,
+      #fff 50%, rgba(255,255,255,0) 80%);
+  mask-image: radial-gradient(ellipse at center,
+      #fff 50%, rgba(255,255,255,0) 80%);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+
+}
+
 
 @media(max-width:790px){
 
     .section{
-        padding-bottom: 4rem;
-        
+        padding-bottom: 1rem;
     }
     
     .animationWrapper{

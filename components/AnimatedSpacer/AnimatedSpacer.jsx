@@ -73,29 +73,25 @@ export default function AnimatedSpacer() {
         tween?.scrollTrigger?.kill();
         tween?.kill();
       };
-    }, section); // limit selector lookups to this section
+    }, section);
 
     return () => ctx.revert();
   }, []);
 
   return (
-    <section id="animatedSpacer" className={styles.section} ref={sectionRef}>
+    <section
+      id={styles.animatedSpacer}
+      className={styles.section}
+      ref={sectionRef}
+    >
       <div className={styles.animationWrapper}>
-        {/* <video
-          ref={videoRef}
-          className="video womanVideo"
-          preload="auto"
-          // no autoplay; GSAP scrubs currentTime instead
-        >
-          <source src="/Rhys/womanCropped.mp4" type="video/mp4" />
-        </video> */}
         <Animations
           webMSrc="/video/womanCropped.webm"
           mp4Src="/video/womanCroppedComp.mp4"
           mobWebMSwrc="/video/womanCropped.webm"
           mobMp4Src="/video/womanCroppedComp.mp4"
           style="video womanVideo"
-          poster="/video/firstframe.png"
+          poster="/video/womanFirstFrame.webp"
           ref={womanVideoRef}
         />
       </div>

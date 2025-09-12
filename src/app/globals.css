@@ -22,7 +22,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-   
+
 }
 
 * {
@@ -69,9 +69,7 @@ section{
 
 
 
-#animatedSpacer{
-  min-height: min-content;
-}
+
 
 
 
