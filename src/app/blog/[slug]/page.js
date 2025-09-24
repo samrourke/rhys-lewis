@@ -58,7 +58,11 @@ export default function PostPage({ params }) {
           &larr; Back
         </Link>
         <header>
-          <h1 id={styles.blogTitle} style={{ marginBottom: "0.25rem" }}>
+          <h1
+            className="section Title grainy-text"
+            id={styles.blogTitle}
+            style={{ marginBottom: "0.25rem" }}
+          >
             {meta.title}
           </h1>
           <time dateTime={meta.date}>

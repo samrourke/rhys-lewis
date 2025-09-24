@@ -60,10 +60,12 @@ export default function Hero() {
       gsap.set(video, { opacity: 0, willChange: "opacity" });
       gsap.set(svgEl, { opacity: 1, willChange: "opacity" });
 
-      // Length of the pinned section
+      // Length of the pinned section and fadeout
       const PIN_LEN = 1500;
+      const FADE_START = PIN_LEN - 400;
+      const FADE_END = PIN_LEN - FADE_START - 50;
 
-      // Crossfade right as scrolling begins (first 100px of scroll)
+      // Crossfade as scrolling begins (first 120px of scroll)
       const crossfade = gsap.timeline({
         scrollTrigger: {
           trigger: document.documentElement,
@@ -103,6 +105,18 @@ export default function Hero() {
         },
       });
 
+      const fadeOut = gsap.to(sectionRef.current, {
+        opacity: 0,
+        scrollTrigger: {
+          // Tie directly to page scroll
+          trigger: document.documentElement,
+          start: `+=${FADE_START}`,
+          end: `+=${FADE_END}`,
+          markers: false,
+          scrub: true,
+        },
+      });
+
       return () => {
         ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
         crossfade?.scrollTrigger?.kill();
@@ -110,6 +124,7 @@ export default function Hero() {
         tween?.scrollTrigger?.kill();
         tween?.kill();
         tl?.kill();
+        fadeOut?.kill();
       };
     };
 

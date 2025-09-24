@@ -21,7 +21,7 @@ export default function BlogIndex() {
 
   return (
     <section className={`${styles.blogPage} section`} id="blog">
-      <h1 className="sectionTitle">Blog</h1>
+      <h1 className="sectionTitle grainy-text">Blog</h1>
       <ul style={{ listStyle: "none", padding: 0 }}>
         {posts.map(({ meta }) => (
           <Link key={meta.slug} href={`/blog/${meta.slug}`}>

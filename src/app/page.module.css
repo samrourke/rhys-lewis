@@ -41,12 +41,12 @@
 
 }
 
-/*Spacer set to match video scroll length of 3000px + container size of 100vh
+/*Spacer set to match video scroll length of 1500px + container size of 100vh
 Next section appears right after video is done*/
 .spacer{
-  height: calc(1000px + 100vh);
+  height: calc(650px + 100vh);
   scroll-snap-align: none;
- 
+
 }
 
 

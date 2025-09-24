@@ -140,11 +140,11 @@
 
   .logo{
    
-    width: 270px;
+    width: 200px;
     height: auto;
     position: absolute;
-    left:15px;
-    top:10px;
+    left:12px;
+    top:18px;
   }
 
     .navbar ul{

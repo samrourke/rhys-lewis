@@ -18,7 +18,7 @@ export default function Music() {
     >
       <div className="titleDiv">
         {" "}
-        <h1 className="sectionTitle grain" id={styles.musicTitle}>
+        <h1 className="sectionTitle grainy-text" id={styles.musicTitle}>
           Music
         </h1>
       </div>

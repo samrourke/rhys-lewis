@@ -29,6 +29,27 @@ export default function RootLayout({ children }) {
     >
       <Head />
       <body>
+        <svg
+          width="0"
+          height="0"
+          style={{ position: "absolute", visibility: "hidden" }}
+        >
+          <defs>
+            <filter id="nnnoise-filter">
+              <feTurbulence
+                type="fractalNoise"
+                baseFrequency="0.8"
+                numOctaves="4"
+                stitchTiles="stitch"
+                result="noise"
+              />
+              <feColorMatrix type="saturate" values="0" />{" "}
+              {/* make noise grayscale */}
+              <feBlend in="SourceGraphic" in2="noise" mode="multiply" />
+            </filter>
+          </defs>
+        </svg>
+
         <Navbar />
         {children}
       </body>

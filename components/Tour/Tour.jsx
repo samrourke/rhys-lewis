@@ -1,7 +1,7 @@
 "use client";
 import styles from "./Tour.module.css";
 import TourTable from "./TourTable";
-import { useRef, useLayoutEffect } from "react";
+import { useRef, useLayoutEffect, useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
@@ -52,6 +52,38 @@ export default function Tour() {
     return () => ctx.revert();
   }, []);
 
+  useEffect(() => {
+    const section = innerRef.current;
+
+    if (!section) return;
+
+    gsap.set(section, { opacity: 0 });
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            gsap.to(innerRef.current, {
+              opacity: 1,
+              duration: 0.8,
+              ease: "power2.out",
+            });
+          } else {
+            gsap.to(innerRef.current, {
+              opacity: 0,
+              duration: 1.5,
+              ease: "power2.out",
+            });
+          }
+        });
+      },
+      { threshold: 0.7 }
+    );
+
+    observer.observe(section);
+
+    return () => observer.disconnect();
+  });
+
   return (
     <>
       <div id="live-top" aria-hidden="true" />
@@ -62,8 +94,8 @@ export default function Tour() {
       >
         <div className={styles.tourContainer} ref={innerRef}>
           <div className={styles.tableContainer} ref={tableRef}>
-            <div className={`${styles.titleDiv} titleDiv`}>
-              <h1 className="sectionTitle grain">Live</h1>
+            <div className={`titleDiv`}>
+              <h1 className="sectionTitle grainy-text">Live</h1>
             </div>
             <TourTable />
           </div>
